@@ -43,8 +43,8 @@ public class PolygoneLstCirc extends PolygoneAbstract{
     /**
      * Constructeur de polygone en liste chainée 
      * 
-     * @param sommets
-     * @throws IllegalArgumentException 
+     * @param sommets tableau de Points
+     * @throws IllegalArgumentException Exception
      */
     public PolygoneLstCirc(Point... sommets) throws IllegalArgumentException {
        super(sommets.length);

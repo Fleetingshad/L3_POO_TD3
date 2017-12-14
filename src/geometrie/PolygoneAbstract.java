@@ -17,7 +17,7 @@ public abstract class PolygoneAbstract implements Polygone {
      * Constructeur pour un tableau de points ou une liste chainée
      *
      * @param taille le nombre de sommets du polygone 
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException Exception
      */
     public PolygoneAbstract(int taille) throws IllegalArgumentException {
         if (taille < 3) {
