@@ -132,7 +132,18 @@ public abstract class PolygoneAbstract implements Polygone {
      */
     @Override
     public String toString() {
-        return "Polygone à " + this.taille + " sommets : \n" + this.texteSommets();
+        //new string builder
+        StringBuilder buff = new StringBuilder();
+        // etendre buff avec le message qui suit :
+        buff.append("Taille du polygone : ");
+        // etendre buff avec la taille :
+        buff.append(this.taille);
+        // etendre buff avec le message suivant :
+        buff.append(" .Sommets  du polygone : ");
+        // insertion des sommets :
+        buff.append(this.texteSommets());
+        // Renvoie de la chaîne :
+        return buff.toString();
     }
 
 }

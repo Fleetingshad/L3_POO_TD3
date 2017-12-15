@@ -99,6 +99,18 @@ public class Point {
      */
     @Override
     public String toString() {
-        return "< " + this.getX() + "," + this.getY() + "> ";
+        //new string builder
+        StringBuilder buff = new StringBuilder();
+        // etendre buff avec le message qui suit :
+        buff.append("<");
+        // etendre buff avec la taille :
+        buff.append(this.getX());
+        // etendre buff avec le message suivant :
+        buff.append(",");
+        // insertion des sommets :
+        buff.append(this.getY());
+        buff.append(">");
+        // Renvoie de la chaîne :
+        return buff.toString();       
     }
 }
