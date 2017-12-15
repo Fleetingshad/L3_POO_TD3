@@ -9,16 +9,17 @@ import java.util.Iterator;
 
 /**
  *
- * @author Lucie et Nicolas 
+ * @author Lucie et Nicolas
  */
 public abstract class PolygoneAbstract implements Polygone {
 
     protected int taille;
-    protected int indice =0;
+    protected int indice = 0;
+
     /**
      * Constructeur pour un tableau de points ou une liste chainée
      *
-     * @param taille le nombre de sommets du polygone 
+     * @param taille le nombre de sommets du polygone
      * @throws IllegalArgumentException Exception
      */
     public PolygoneAbstract(int taille) throws IllegalArgumentException {
@@ -30,8 +31,8 @@ public abstract class PolygoneAbstract implements Polygone {
 
     /**
      * Permet d'obtenir le nombre de points d'un polygone
-     * 
-     * @return le nombre de sommets du polygone 
+     *
+     * @return le nombre de sommets du polygone
      */
     @Override
     public int getNbeSommets() {
@@ -78,7 +79,6 @@ public abstract class PolygoneAbstract implements Polygone {
         return stringBuilder.toString();
     }
 
-    
     /**
      * Vérifie si deux polygones sont égaux, prend en compte la rotation
      *
@@ -87,20 +87,20 @@ public abstract class PolygoneAbstract implements Polygone {
      */
     @Override
     public boolean equals(Object obj) {
-        
+
         if (obj == null || !(obj instanceof PolygoneTab) && !(obj instanceof PolygoneLstCirc)) {
             return false;
         }
-        
+
         PolygoneAbstract polygone = (PolygoneAbstract) obj;
-        
+
         if (obj instanceof PolygoneLstCirc) {
             polygone = (PolygoneLstCirc) obj;
-            
-        }else{
+
+        } else {
             polygone = (PolygoneTab) obj;
         }
-        
+
         int eq = 0;
         int eq2 = 0;
         if (this.taille == polygone.taille) { //si les deux polygones ont le même nombre de sommets
@@ -126,7 +126,7 @@ public abstract class PolygoneAbstract implements Polygone {
         }
         return false;
     }
-    
+
     /**
      * Affichage des informations d'un polygône
      *
@@ -148,10 +148,11 @@ public abstract class PolygoneAbstract implements Polygone {
         return sb.toString();
     }
 
-    public Iterator<Point> iterator(){
+    public Iterator<Point> iterator() {
         return new Itr();
     }
-    private class Itr implements Iterator<Point>{
+
+    private class Itr implements Iterator<Point> {
 
         @Override
         public boolean hasNext() {
@@ -161,15 +162,20 @@ public abstract class PolygoneAbstract implements Polygone {
 
         @Override
         public Point next() {
-            // retourne le sommet suivant par rapport à l'indice courant            
-            return getUnSommet(indice+1);                
+            // retourne le sommet suivant par rapport à l'indice courant
+            if (this.hasNext()){
+                indice++;
+                return getUnSommet(indice);
+            } else {//si il n'y a plus de point après, retourne le premier.
+                return getUnSommet(0);
+            }
         }
 
         @Override
         public void remove() {
-            throw new UnsupportedOperationException("Pas supporté"); 
+            throw new UnsupportedOperationException("Pas supporté\n");
         }
-        
+
     }
-    
+
 }
