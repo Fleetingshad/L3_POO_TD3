@@ -9,7 +9,7 @@ package geometrie;
  *
  * @author Lucie et Nicolas
  */
-public interface Polygone {
+public interface Polygone extends Iterable<Point> {
 
     /**
      * Calcule la surface d'un polygone, non-implémentée pour l'instant

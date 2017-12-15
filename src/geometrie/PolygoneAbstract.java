@@ -14,7 +14,6 @@ import java.util.Iterator;
 public abstract class PolygoneAbstract implements Polygone {
 
     protected int taille;
-    protected int indice = 0;
 
     /**
      * Constructeur pour un tableau de points ou une liste chainée
@@ -23,7 +22,7 @@ public abstract class PolygoneAbstract implements Polygone {
      * @throws IllegalArgumentException Exception
      */
     public PolygoneAbstract(int taille) throws IllegalArgumentException {
-        if (taille < 3) {
+        if (taille < 2) {
             throw new IllegalArgumentException("Vous ne pouvez pas initialiser un polygone de moins de trois sommets.");
         }
         this.taille = taille;
@@ -70,13 +69,21 @@ public abstract class PolygoneAbstract implements Polygone {
      *
      * @return une chaîne contenant la liste des sommets
      */
+    public String texteSommets0() {
+        StringBuilder sb = new StringBuilder();
+        Iterator<Point> iter = this.iterator();
+        while (iter.hasNext()) {
+            sb.append(iter.next());
+        }
+        return sb.toString();
+    }
     @Override
     public String texteSommets() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < this.taille; i++) {
-            stringBuilder.append(this.getUnSommet(i).toString());
+        StringBuilder sb = new StringBuilder();
+        for(Point p : this) {
+            sb.append(p);
         }
-        return stringBuilder.toString();
+        return sb.toString();
     }
 
     /**
@@ -141,7 +148,7 @@ public abstract class PolygoneAbstract implements Polygone {
         // etendre buff avec la taille :
         sb.append(this.taille);
         // etendre buff avec le message suivant :
-        sb.append(" sommets :\n ");
+        sb.append(" sommets : ");
         // insertion des sommets :
         sb.append(this.texteSommets());
         // Renvoie de la chaîne :
@@ -154,6 +161,8 @@ public abstract class PolygoneAbstract implements Polygone {
 
     private class Itr implements Iterator<Point> {
 
+        private int indice = 0;
+
         @Override
         public boolean hasNext() {
             // Return vrai si il y'a d'autres éléments , sinon return false;
@@ -163,27 +172,14 @@ public abstract class PolygoneAbstract implements Polygone {
         @Override
         public Point next() {
             // retourne le sommet suivant par rapport à l'indice courant
-            if (this.hasNext()){
-                indice++;
-                return getUnSommet(indice);
-            } else {//si il n'y a plus de point après, retourne le premier.
-                return getUnSommet(0);
-            }
+            return getUnSommet(indice++);
         }
 
         @Override
         public void remove() {
-<<<<<<< HEAD
-            throw new UnsupportedOperationException("Pas supporté\n");
-=======
-            // cette méthode est optionnel :
-            // On ne peut pas modifié une liste en cours d'itération
+            // cette méthode est optionnelle :
+            // On ne peut pas modifier une liste en cours d'itération
             // car l'itérateur a besoin de connaitre quoi retourner pour la méthode hasnext() et next()            
-            while(this.hasNext()){
-                this.next();
-                this.remove();
-            }
->>>>>>> d1685dd712f8eaa7748b888e38bed0ebdb7d04b7
         }
 
     }

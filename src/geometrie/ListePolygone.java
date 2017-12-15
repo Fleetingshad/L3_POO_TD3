@@ -39,7 +39,7 @@ public class ListePolygone {
      * périmètre et surface)
      */
     public void afficheInfos() {
-        LISTE_POLYGONES.forEach(p -> System.out.println(p.toString() + "\nPérimètre : " + p.perimetre() + "\nSurface : " + p.surface()+'\n'));
+        LISTE_POLYGONES.forEach(p -> System.out.println(p.toString() + "\nPérimètre : " + p.perimetre() + "\nSurface : " + p.surface() + '\n'));
     }
 
     /**
@@ -49,6 +49,10 @@ public class ListePolygone {
      */
     @Override
     public String toString() {
-        return "Liste de " + LISTE_POLYGONES.size() + " polygones. \n";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Liste de ");
+        sb.append(LISTE_POLYGONES.size());
+        sb.append(" polygones. \n");
+        return sb.toString();
     }
 }

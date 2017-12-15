@@ -52,14 +52,10 @@ public class RectangleTab extends PolygoneTab {
      */
     @Override
     public String toString() {
-          //new string builder
         StringBuilder sb = new StringBuilder();
-        // etendre buff avec le message qui suit :
         sb.append("Rectangle à plat :");
         sb.append(this.texteSommets());
-        // Renvoie de la chaîne :
-        return sb.toString();  
-        //return "Rectangle à plat :\n" + this.texteSommets();
+        return sb.toString();
     }
 
 }

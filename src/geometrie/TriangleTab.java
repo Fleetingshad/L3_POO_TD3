@@ -76,16 +76,19 @@ public class TriangleTab extends PolygoneTab {
      */
     @Override
     public String toString() {
-
-        String s = "Triangle ";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Triangle ");
 
         if (this.isEquilateral()) {
-            s += " équilatéral ";
+            sb.append(" équilatéral ");
         } else if (this.isIsocele()) {
-            s += " isocèle ";
+            sb.append(" isocèle ");
         } else {
-            s += " scalène ";
+            sb.append(" scalène ");
         }
-        return s + " :\n" + this.texteSommets();
+        sb.append(" : ");
+        sb.append(this.texteSommets());
+        return sb.toString();
     }
+
 }

@@ -9,13 +9,12 @@ package geometrie;
  *
  * @author Nicol
  */
-public class CarreLstCirc extends PolygoneLstCirc{
-    
-    
+public class CarreLstCirc extends PolygoneLstCirc {
+
     /**
      * Longueur du carré
      */
-    private double longueur;
+    private final double longueur;
 
     /**
      * Constructeur avec un point et la longueur des côtés
@@ -27,6 +26,7 @@ public class CarreLstCirc extends PolygoneLstCirc{
         super(sg, new Point((sg.getX() + longueur), sg.getY()), new Point((sg.getX() + longueur), (sg.getY() - longueur)), new Point(sg.getX(), (sg.getY() - longueur)));
         this.longueur = longueur;
     }
+
     /**
      * Calcule la surface d'un carré
      *
@@ -44,13 +44,9 @@ public class CarreLstCirc extends PolygoneLstCirc{
      */
     @Override
     public String toString() {
-          //new string builder
         StringBuilder sb = new StringBuilder();
-        // etendre buff avec le message qui suit :
         sb.append("Carré à plat :");
-        // etendre buff avec la taille :
-        sb.append(this.texteSommets());       
-        return sb.toString();  
-        //return "Carré a plat :\n" + this.texteSommets();
+        sb.append(this.texteSommets());
+        return sb.toString();
     }
 }
