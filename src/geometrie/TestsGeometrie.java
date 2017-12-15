@@ -175,13 +175,15 @@ public class TestsGeometrie {
         
         /////////////////////////////////////////////////////////////////////////////
             
-        
-        System.out.println("\n-- Test de condition contructeur polygone --");
-        
-        try {
+        try {            
+            System.out.println("\n-- Test de condition contructeur polygone --");
             System.out.println("Polygone a 2 sommets : ");
             PolygoneLstCirc poly2Sommets = new PolygoneLstCirc(new Point[]{new Point(-12,0), new Point(5,10)});
             System.out.println(poly2Sommets);
+            
+            System.out.println("\n-- TEST ITERATOR --");
+            System.out.println("\nSommets d'un polygone :");
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
 

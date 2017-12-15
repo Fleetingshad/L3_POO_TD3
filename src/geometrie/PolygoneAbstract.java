@@ -167,7 +167,13 @@ public abstract class PolygoneAbstract implements Polygone {
 
         @Override
         public void remove() {
-            throw new UnsupportedOperationException("Pas supporté"); 
+            // cette méthode est optionnel :
+            // On ne peut pas modifié une liste en cours d'itération
+            // car l'itérateur a besoin de connaitre quoi retourner pour la méthode hasnext() et next()            
+            while(this.hasNext()){
+                this.next();
+                this.remove();
+            }
         }
         
     }
