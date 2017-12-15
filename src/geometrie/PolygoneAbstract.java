@@ -5,6 +5,8 @@
  */
 package geometrie;
 
+import java.util.Iterator;
+
 /**
  *
  * @author Lucie et Nicolas 
@@ -12,7 +14,7 @@ package geometrie;
 public abstract class PolygoneAbstract implements Polygone {
 
     protected int taille;
-
+    protected int indice =0;
     /**
      * Constructeur pour un tableau de points ou une liste chainée
      *
@@ -146,4 +148,28 @@ public abstract class PolygoneAbstract implements Polygone {
         return sb.toString();
     }
 
+    public Iterator<Point> iterator(){
+        return new Itr();
+    }
+    private class Itr implements Iterator<Point>{
+
+        @Override
+        public boolean hasNext() {
+            // Return vrai si il y'a d'autres éléments , sinon return false;
+            return indice < taille;
+        }
+
+        @Override
+        public Point next() {
+            // retourne le sommet suivant par rapport à l'indice courant            
+            return getUnSommet(indice+1);                
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException("Pas supporté"); 
+        }
+        
+    }
+    
 }
