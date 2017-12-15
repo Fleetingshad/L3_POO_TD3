@@ -109,7 +109,7 @@ public class Point {
         buff.append(",");
         // insertion des sommets :
         buff.append(this.getY());
-        buff.append(">");
+        buff.append("> ");
         // Renvoie de la chaîne :
         return buff.toString();       
     }
