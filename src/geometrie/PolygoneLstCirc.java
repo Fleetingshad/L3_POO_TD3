@@ -65,6 +65,7 @@ public class PolygoneLstCirc extends PolygoneAbstract {
      */
     @Override
     public Point getUnSommet(int indicePoint) {
+        indicePoint %= this.getNbeSommets();
         Noeud n = this.debut;
         for (int i = 0; i < indicePoint; i++) {
             n = n.suiv;

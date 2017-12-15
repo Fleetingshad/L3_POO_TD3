@@ -69,14 +69,6 @@ public abstract class PolygoneAbstract implements Polygone {
      *
      * @return une chaîne contenant la liste des sommets
      */
-    public String texteSommets0() {
-        StringBuilder sb = new StringBuilder();
-        Iterator<Point> iter = this.iterator();
-        while (iter.hasNext()) {
-            sb.append(iter.next());
-        }
-        return sb.toString();
-    }
     @Override
     public String texteSommets() {
         StringBuilder sb = new StringBuilder();
