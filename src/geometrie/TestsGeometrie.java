@@ -33,12 +33,12 @@ public class TestsGeometrie {
             System.out.println("\ntoString du point 'b' (-2.34444457) : ");
             System.out.println(b.toString());
 
-            System.out.println("\n -> Egalité entre le point a & b : " + a.equals(b) + '\n');
+            System.out.println("\n -> Egalité entre les points a & b : " + a.equals(b) + '\n');
             
             System.out.println("Distance entre le point a et le point b : ");
             System.out.println(a.distance(b));
             
-            System.out.println("Test des getteurs :\n");
+            System.out.println("Test des getters :\n");
             System.out.println("a.getX() : ");
             System.out.println(a.getX());
             System.out.println("\na.getY()");

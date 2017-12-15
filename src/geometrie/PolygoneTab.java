@@ -28,15 +28,6 @@ public class PolygoneTab extends PolygoneAbstract {
     }
 
     /**
-     * Accesseur pour le tableau de points
-     *
-     * @return le tableau de points du polygone
-     */
-    public Point[] getSommets() {
-        return this.sommets;
-    }
-
-    /**
      * Retourne le point correspondant au numero du sommet passé en paramètre
      * 
      * @param indicePoint le numéro d'un sommet d'un polygone

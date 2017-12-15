@@ -7,7 +7,7 @@ package geometrie;
 
 /**
  *
- * @author Nicol
+ * @author Nicolas et Lucie
  */
 public class RectangleLstCirc extends PolygoneLstCirc {
     /**
@@ -37,13 +37,13 @@ public class RectangleLstCirc extends PolygoneLstCirc {
      * Calcule la surface d'un rectangle
      *
      * @return la surface du rectangle
-     *
+     */
     @Override
     public double surface() {
-        return ((this.getSommets()[0].distance(this.getSommets()[1]))
-                * (this.getSommets()[0].distance(this.getSommets()[3])));
+        return ((this.getUnSommet(0).distance(this.getUnSommet(1)))
+                * (this.getUnSommet(0).distance(this.getUnSommet(3))));
     }
-*/
+
     /**
      * Affiche les informations d'un rectangle
      *

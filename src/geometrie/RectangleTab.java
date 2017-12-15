@@ -41,8 +41,8 @@ public class RectangleTab extends PolygoneTab {
      */
     @Override
     public double surface() {
-        return ((this.getSommets()[0].distance(this.getSommets()[1]))
-                * (this.getSommets()[0].distance(this.getSommets()[3])));
+        return ((this.getUnSommet(0).distance(this.getUnSommet(1)))
+                * (this.getUnSommet(0).distance(this.getUnSommet(3))));
     }
 
     /**
